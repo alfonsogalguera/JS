@@ -17,3 +17,11 @@ persona2.direccion= 'chipilo2000';
 persona2.telefono= '9581008481';
 
 console.log(persona2); 
+
+
+//Otra forma 
+
+for(nombrepropiedad in persona){
+    console.log(nombrepropiedad);
+    console.log(persona[nombrepropiedad]); 
+}
