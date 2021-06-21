@@ -8,17 +8,14 @@ function Persona(nombre, apellido, email){
     }
 }
 
+Persona.prototype.tel = 2228132345;
+
 let padre = new Persona('Juan', 'Perez', 'jp@gmail.com');
-console.log(padre);
+padre.tel= 235648791;
+console.log(padre.tel);
 
 let madre = new Persona('Elsa', 'Caballero', 'EC@gmail.com');
-console.log(madre.nombreCompleto());
+madre.tel=23456849510;
+console.log(madre.tel);
 //console.log(madre);
 
-padre.nombre = 'Carlos';
-console.log(padre.nombreCompleto());
-//console.log(padre);
-
-//Metodos en metodos 
-var miObjeto = new Object();
-let miObjeto2 = {};
