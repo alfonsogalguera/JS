@@ -1,13 +1,21 @@
 class Persona {
 
-    static contadorObjetosPersona = 0;
+    static contadorPersona = 0;
 
-    email = 'Valor default email';//Atributo de nuestros objetos
+    static get MAX_OBJ(){
+        return 5;
+    }
 
     constructor(nombre, apellido){
         this._nombre = nombre;
         this._apellido = apellido;
-        Persona.contadorObjetosPersona++; 
+        if(Persona.contadorPersona < Persona.MAX_OBJ){
+            this.idPersona = ++Persona.contadorPersona; 
+        }
+        else{
+            console.log('Se han superado el maximo de admitidos');
+        }
+        
     }
     get nombre(){
     return this._nombre;
@@ -23,7 +31,7 @@ class Persona {
         this._apellido = apellido;
     }
     nombreCompleto(){
-        return this._nombre + ' ' + this._apellido; 
+        return this.idPersona + ' ' + this._nombre + ' ' + this._apellido; 
     }
     toString(){
         return this.nombreCompleto();
@@ -57,19 +65,19 @@ class Empleado extends Persona{
 
 let persona1 =  new Persona('Juan', 'Perez');
 console.log(persona1.toString());
+
 let empleado1 = new Empleado('Alfonso', 'Galguera', 'administrativo');
-console.log(empleado1.nombreCompleto());
-console.log(empleado1.toString());
 
-//No es posible llamar un static desde un objeto persona1.saludar();
-Persona.saludar();
-Persona.saludar2(persona1);
-Empleado.saludar();
-Empleado.saludar2(empleado1);
+console.log(Persona.MAX_OBJ);
+Persona.MAX_OBJ = 10;
+console.log(Persona.MAX_OBJ);
 
-console.log(persona1.contadorObjetosPersona);
-console.log(Persona.contadorObjetosPersona);
+let persona2= new Persona('alfonso', 'Galguera');
 
-console.log(persona1.email);
-console.log(empleado1.email);
-console.log(Persona.email);
+let persona3= new Persona('alfonso', 'Galguera');
+
+let persona4= new Persona('alfonso', 'Galguera');
+
+let persona5= new Persona('alfonso', 'Galguera');
+
+console.log(persona4.toString());
