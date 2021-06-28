@@ -62,18 +62,18 @@ class Cliente extends Persona{
 
     constructor(nombre, apellido, edad, fechaRegistro){
         super(nombre, apellido, edad);
-        this.idCliente = ++Cliente.contadorCliente;
-        this.fechaRegistro = fechaRegistro;
+        this._idCliente = ++Cliente.contadorCliente;
+        this._fechaRegistro = fechaRegistro;
     }
 
     get idCliente(){
-        return this.idCliente;
+        return this._idCliente;
     }
     get fechaRegistro(){
-        return this.fechaRegistro;
+        return this._fechaRegistro;
     }
     set fechaRegistro(fechaRegistro){
-        this.fechaRegistro=fechaRegistro;
+        this._fechaRegistro=fechaRegistro;
     }
     toString(){
         return super.toString() + ' ' + this.idCliente + ' ' + this.fechaRegistro;
@@ -87,3 +87,6 @@ console.log(persona2.toString());
 
 let empleado1= new Empleado('karla', 'Moreno', '35', 25000);
 console.log(empleado1.toString());
+
+let cliente1 = new Cliente('Elsa', 'Maraver', 30 , new Date());
+console.log(cliente1.toString());
