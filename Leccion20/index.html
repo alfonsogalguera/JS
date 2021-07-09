@@ -7,13 +7,31 @@
 <body>
     <h1 id='cabecera'>Ejemplo DOM con Javascript</h1>
     <p id='parrafo'>SALUDOS!</p>
+    <p id='parrafo2'>Otro parrafo</p>
+    <p class="parrafo3">Clase 1</p>
+    <p class="parrafo3">Clase 2</p>
 <script>
 
-let cabecera = document.getElementById('cabecera').innerHTML;
-let parrafo = document.getElementById('parrafo').innerHTML;
-console.log(`Valor cabecera: ${cabecera}`);
-console.log(`Valor de parrafo: ${parrafo}`);
-console.log('saludos desde javascript');
+// let cabecera = document.getElementById('cabecera').innerHTML;
+// let parrafo = document.getElementById('parrafo').innerHTML;
+// console.log(`Valor cabecera: ${cabecera}`);
+// console.log(`Valor de parrafo: ${parrafo}`);
+let cabecera = document.getElementsByTagName('h1');
+let parrafos = document.getElementsByTagName('p');
+let clases = document.querySelectorAll('p.parrafo3');
+console.log('No. de clases: '+ clases.length);
+for(let clase of clases){
+    console.log(clase.innerHTML);
+}
+console.log(`Numero de cabeceras: ${cabecera.length}`)
+for(let i=0; i<cabecera.length; i++){
+    console.log(`${i} - ${cabecera[i].innerHTML}`)
+}
+console.log(`Numero de parrafos: ${parrafos.length}`);
+for(let i=0; i<parrafos.length; i++){
+    console.log(` ${i} - ${parrafos[i].innerHTML}`);
+}
+
 </script>
 
 </body>
